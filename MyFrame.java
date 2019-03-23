@@ -11,43 +11,50 @@ public class MyFrame extends JFrame implements KeyListener{
 	}
 
 	public void keyPressed(KeyEvent e){
+
 		if(e.getKeyCode() == KeyEvent.VK_UP){
-			drawing.moveUp();
-			System.out.println("pos: " + drawing.x + ", " + drawing.y);
+			drawing.jump();
+			System.out.println("jump");
 		}
+
 		else if(e.getKeyCode() == KeyEvent.VK_RIGHT){
 			drawing.moveRight();
 			System.out.println("pos: " + drawing.x + ", " + drawing.y);
 		}
+
 		else if(e.getKeyCode() == KeyEvent.VK_DOWN){
-			drawing.moveDown();
-			System.out.println("pos: " + drawing.x + ", " + drawing.y);
+			//drawing.();
 		}
+
 		else if(e.getKeyCode() == KeyEvent.VK_LEFT){
 			drawing.moveLeft();
-			System.out.println("pos: " + drawing.x + ", " + drawing.y);
+			System.out.println("pos:" + drawing.x + ", " + drawing.y);
 		}
-		else if(e.getKeyCode() == KeyEvent.VK_SPACE){
-			drawing.attack();
-			System.out.println("attack");
-		}
-		
 
-	public void keyReleased(KeyEvent e){
+		else if(e.getKeyCode() == KeyEvent.VK_SPACE){
+			drawing.jump();
+			System.out.println("jump");
+		}
+	
+	}
+
+	public void keyTyped(KeyEvent event){
 
 	}
 
-	public void keyTyped(KeyEvent e){
+	public void keyReleased(KeyEvent event){
 
 	}
 
 	public static void main(String args[]){
 		MyFrame gameFrame = new MyFrame();
-		gameFrame.setSize(600,600);
+		gameFrame.setSize(1280,640);
 		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameFrame.setVisible(true);
+
 		gameFrame.getContentPane().add(gameFrame.drawing);
 		gameFrame.addKeyListener(gameFrame);
 		System.out.println("practical programming");
 	}
 }
+
